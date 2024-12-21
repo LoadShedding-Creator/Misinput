@@ -1,6 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://dbxckrfghx2ct"]
+[gd_scene load_steps=7 format=3 uid="uid://dbxckrfghx2ct"]
 
 [ext_resource type="PackedScene" uid="uid://b871o6f6f4to8" path="res://Player.tscn" id="1_at5ga"]
+[ext_resource type="Environment" uid="uid://c73te6d4inath" path="res://world_environment.tres" id="2_40qtx"]
 [ext_resource type="PackedScene" uid="uid://b5icgnnkuqbou" path="res://Platform.tscn" id="2_ohr0p"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_miw8r"]
@@ -11,27 +12,10 @@ material = SubResource("StandardMaterial3D_miw8r")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_81tlb"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_sjnis"]
-sky_top_color = Color(0, 0.698039, 1, 1)
-sky_horizon_color = Color(1, 0.474155, 0.372075, 1)
-sky_curve = 0.160766
-ground_bottom_color = Color(0, 0.698039, 1, 1)
-ground_horizon_color = Color(1, 0.47451, 0.372549, 1)
-ground_curve = 0.16
-sun_angle_max = 25.56
-sun_curve = 0.18706
-
-[sub_resource type="Sky" id="Sky_r1r6n"]
-sky_material = SubResource("ProceduralSkyMaterial_sjnis")
-
-[sub_resource type="Environment" id="Environment_l2qer"]
-background_mode = 2
-sky = SubResource("Sky_r1r6n")
-
 [node name="Main" type="Node3D"]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(2, 0, 0, 0, 5, 0, 0, 0, 100, -0.0127373, -2.48316, 0.0312443)
+transform = Transform3D(-8.74228e-08, 0, 100, 0, 5, 0, -2, 0, -4.37114e-06, -0.0127373, -2.48316, 0.0312443)
 mesh = SubResource("BoxMesh_4yigl")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D"]
@@ -39,11 +23,11 @@ mesh = SubResource("BoxMesh_4yigl")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D"]
 shape = SubResource("BoxShape3D_81tlb")
 
-[node name="CharacterBody3D" parent="." instance=ExtResource("1_at5ga")]
+[node name="Player" parent="." instance=ExtResource("1_at5ga")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.25, 0)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_l2qer")
+environment = ExtResource("2_40qtx")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1.19249e-08, 0.0610485, -0.998135, 0, 0.998135, 0.0610485, 1, -7.27996e-10, 1.19026e-08, 1.7251, 2.1228, 0)
@@ -54,10 +38,10 @@ shadow_reverse_cull_face = true
 shadow_blur = 0.5
 
 [node name="Platform" parent="." instance=ExtResource("2_ohr0p")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 2, 5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 2, -15.9584)
 
 [node name="Platform2" parent="." instance=ExtResource("2_ohr0p")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 2.75365, 7.83362)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 2.75365, -13.1248)
 
 [node name="Platform3" parent="." instance=ExtResource("2_ohr0p")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 3.49828, 10.2553)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 3.49828, -10.7031)
