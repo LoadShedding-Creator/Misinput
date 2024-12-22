@@ -1,11 +1,13 @@
-[gd_scene load_steps=7 format=3 uid="uid://dbxckrfghx2ct"]
+[gd_scene load_steps=8 format=3 uid="uid://dbxckrfghx2ct"]
 
+[ext_resource type="Texture2D" uid="uid://cb8d7rg82h1gb" path="res://Game Images/Game-Dirt.jpeg" id="1_3irbg"]
 [ext_resource type="PackedScene" uid="uid://b871o6f6f4to8" path="res://Player.tscn" id="1_at5ga"]
 [ext_resource type="Environment" uid="uid://c73te6d4inath" path="res://world_environment.tres" id="2_40qtx"]
 [ext_resource type="PackedScene" uid="uid://b5icgnnkuqbou" path="res://Platform.tscn" id="2_ohr0p"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_miw8r"]
-albedo_color = Color(0.310617, 0.310617, 0.310617, 1)
+albedo_color = Color(0.217422, 0.244111, 0.0733633, 1)
+albedo_texture = ExtResource("1_3irbg")
 
 [sub_resource type="BoxMesh" id="BoxMesh_4yigl"]
 material = SubResource("StandardMaterial3D_miw8r")
@@ -14,13 +16,22 @@ material = SubResource("StandardMaterial3D_miw8r")
 
 [node name="Main" type="Node3D"]
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(-8.74228e-08, 0, 100, 0, 5, 0, -2, 0, -4.37114e-06, -0.0127373, -2.48316, 0.0312443)
+[node name="Ground 1" type="MeshInstance3D" parent="."]
+transform = Transform3D(-8.74228e-08, 0, 10000, 0, 0.5, 0, -2, 0, -0.000437114, -0.013, -0.5, 0.031)
 mesh = SubResource("BoxMesh_4yigl")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Ground 1"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground 1/StaticBody3D"]
+shape = SubResource("BoxShape3D_81tlb")
+
+[node name="Ground 2" type="MeshInstance3D" parent="."]
+transform = Transform3D(-8.74228e-08, 0, 10000, 0, 100, 0, -2, 0, -0.000437114, -0.013, -50.25, 0.031)
+mesh = SubResource("BoxMesh_4yigl")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Ground 2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground 2/StaticBody3D"]
 shape = SubResource("BoxShape3D_81tlb")
 
 [node name="Player" parent="." instance=ExtResource("1_at5ga")]
@@ -29,8 +40,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.25, 0)
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = ExtResource("2_40qtx")
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1.19249e-08, 0.0610485, -0.998135, 0, 0.998135, 0.0610485, 1, -7.27996e-10, 1.19026e-08, 1.7251, 2.1228, 0)
+[node name="Sun" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.999908, -0.000828932, 0.0135529, 1.16411e-10, 0.998135, 0.0610485, -0.0135782, 0.0610429, -0.998043, 2.38527, 2.1228, 0)
 light_color = Color(1, 0.906197, 0.577558, 1)
 light_angular_distance = 2.0
 shadow_enabled = true
@@ -38,10 +49,10 @@ shadow_reverse_cull_face = true
 shadow_blur = 0.5
 
 [node name="Platform" parent="." instance=ExtResource("2_ohr0p")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 2, -15.9584)
+transform = Transform3D(0.912713, -0.408601, 0, 0.408601, 0.912713, 0, 0, 0, 0.5, 10.1096, 0.381183, 0)
 
 [node name="Platform2" parent="." instance=ExtResource("2_ohr0p")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 2.75365, -13.1248)
+transform = Transform3D(0.857778, -0.51402, 0, 0.51402, 0.857778, 0, 0, 0, 0.5, 19.4721, 2.64991, 0)
 
 [node name="Platform3" parent="." instance=ExtResource("2_ohr0p")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 3.49828, -10.7031)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.5, 14.8481, 1.38046, 0)
