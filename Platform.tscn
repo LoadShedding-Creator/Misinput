@@ -1,6 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://b5icgnnkuqbou"]
+[gd_scene load_steps=5 format=3 uid="uid://b5icgnnkuqbou"]
+
+[ext_resource type="Texture2D" uid="uid://cb8d7rg82h1gb" path="res://Game Images/Game-Dirt.jpeg" id="1_yv3fp"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3hi3m"]
+albedo_texture = ExtResource("1_yv3fp")
+uv1_scale = Vector3(21.43, 21.43, 21.43)
 
 [sub_resource type="BoxMesh" id="BoxMesh_aybnx"]
+material = SubResource("StandardMaterial3D_3hi3m")
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_8s7vt"]
 data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
