@@ -1,58 +1,12 @@
 [gd_scene load_steps=3 format=3 uid="uid://ce4s6r5i0o1yt"]
 
-[ext_resource type="PackedScene" uid="uid://crq0s54sf8dxg" path="res://platform.tscn" id="1_1pkt2"]
-
-[sub_resource type="Environment" id="Environment_mk83f"]
+[ext_resource type="PackedScene" uid="uid://dbxckrfghx2ct" path="res://World.tscn" id="1_0e3td"]
+[ext_resource type="Script" path="res://camera_2d.gd" id="2_xvqob"]
 
 [node name="Main" type="Node2D"]
-position = Vector2(128, -10)
+position = Vector2(576, 324)
 
-[node name="Platform" parent="." instance=ExtResource("1_1pkt2")]
-position = Vector2(99, -55)
-scale = Vector2(1.15171, 8.35601)
+[node name="World" parent="." instance=ExtResource("1_0e3td")]
 
-[node name="Platform2" parent="." instance=ExtResource("1_1pkt2")]
-position = Vector2(-149, 20)
-scale = Vector2(80.6727, 0.826796)
-
-[node name="Platform3" parent="." instance=ExtResource("1_1pkt2")]
-position = Vector2(-19, -55)
-rotation = -0.633929
-scale = Vector2(13.5189, -0.384159)
-
-[node name="Platform4" parent="." instance=ExtResource("1_1pkt2")]
-modulate = Color(0.215964, 0.117253, 0.0252319, 1)
-self_modulate = Color(0.681424, 0.738185, 0.964069, 1)
-position = Vector2(-91, 525)
-scale = Vector2(100, 50)
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_mk83f")
-
-[node name="ParallaxBackground" type="ParallaxBackground" parent="WorldEnvironment"]
-
-[node name="ParallaxLayer" type="ParallaxLayer" parent="WorldEnvironment/ParallaxBackground"]
-motion_scale = Vector2(0.2, 0.2)
-
-[node name="Polygon2D" type="Polygon2D" parent="WorldEnvironment/ParallaxBackground/ParallaxLayer"]
-position = Vector2(485.992, 249.134)
-scale = Vector2(2.46225, 1.70996)
-color = Color(1, 1, 0.145098, 1)
-polygon = PackedVector2Array(-466.643, -146.281, -386.635, -172.597, -339.93, -224.646, -246.519, -165.58, -186.006, -153.884, -81.6295, -184.878, -40.204, -240.435, 85.6971, -147.451)
-
-[node name="ParallaxLayer2" type="ParallaxLayer" parent="WorldEnvironment/ParallaxBackground"]
-motion_scale = Vector2(0.5, 0.5)
-
-[node name="Polygon2D" type="Polygon2D" parent="WorldEnvironment/ParallaxBackground/ParallaxLayer2"]
-z_index = -5
-color = Color(1, 0.133333, 1, 1)
-polygon = PackedVector2Array(-806, 11, -579, -62, -442, -192, -247, -196, -168, -107, 33, -31, 243, -97, 285, -177, 357, -268, 424, -210, 523, -174, 591.404, -102.286, 662, -50, 762, 15)
-
-[node name="ParallaxLayer3" type="ParallaxLayer" parent="WorldEnvironment/ParallaxBackground"]
-
-[node name="Polygon2D" type="Polygon2D" parent="WorldEnvironment/ParallaxBackground/ParallaxLayer3"]
-z_index = -10
-position = Vector2(485.992, 249.134)
-scale = Vector2(2.46225, 1.70996)
-color = Color(0.447059, 1, 1, 1)
-polygon = PackedVector2Array(-451, -209, -530, -143, -363, -136, -197, -134, -72.0522, -136.231, -29, -137, 119, -134, 85, -230, 10, -282, -53, -365, -93, -326, -124, -218, -178, -190, -232, -232, -252, -277, -277, -296, -328, -307, -387, -295)
+[node name="Camera2D" type="Camera2D" parent="."]
+script = ExtResource("2_xvqob")

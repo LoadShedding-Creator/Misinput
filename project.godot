@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Nig"
-run/main_scene="res://World.tscn"
+run/main_scene="res://Main.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -41,3 +41,4 @@ d={
 [rendering]
 
 environment/volumetric_fog/volume_size=256
+environment/defaults/default_clear_color=Color(1, 1, 1, 1)
