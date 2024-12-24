@@ -7,7 +7,7 @@ var center_node: RigidBody2D
 
 func _ready():
 # Get the center node
-	center_node = get_node(center_position) as RigidBody2D
+	center_node = get_parent() as RigidBody2D
 
 func _integrate_forces(state):
 # Calculate distance and direction from the center
