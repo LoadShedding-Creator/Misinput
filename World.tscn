@@ -1,3 +1,79 @@
-[gd_scene format=3 uid="uid://dbxckrfghx2ct"]
+[gd_scene load_steps=6 format=3 uid="uid://dbxckrfghx2ct"]
+
+[ext_resource type="PackedScene" uid="uid://b871o6f6f4to8" path="res://Player.tscn" id="1_mkalr"]
+[ext_resource type="Script" path="res://hammer.gd" id="2_3iql8"]
+[ext_resource type="Script" path="res://line.gd" id="2_otal7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4263q"]
+size = Vector2(5, 5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dfitb"]
 
 [node name="Main" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_mkalr")]
+unique_name_in_owner = true
+position = Vector2(512, 216)
+
+[node name="Hammer" type="RigidBody2D" parent="Player"]
+position = Vector2(-108, -5)
+script = ExtResource("2_3iql8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/Hammer"]
+shape = SubResource("RectangleShape2D_4263q")
+
+[node name="Polygon2D" type="Polygon2D" parent="Player/Hammer"]
+position = Vector2(1, 0)
+color = Color(1, 0, 1, 1)
+offset = Vector2(-0.5, -0.5)
+polygon = PackedVector2Array(-3, -2, 2, -2, 2, 3, -3, 3)
+
+[node name="PinJoint2D" type="PinJoint2D" parent="Player"]
+node_a = NodePath("..")
+node_b = NodePath("../Hammer")
+bias = 0.9
+
+[node name="Platform" type="StaticBody2D" parent="."]
+position = Vector2(506, 386)
+scale = Vector2(47.1865, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform"]
+shape = SubResource("RectangleShape2D_dfitb")
+
+[node name="Polygon2D" type="Polygon2D" parent="Platform"]
+polygon = PackedVector2Array(-10, -10, 10, -10, 10, 10, -10, 10)
+
+[node name="Platform2" type="StaticBody2D" parent="."]
+position = Vector2(215, 346)
+rotation = 0.366798
+scale = Vector2(47.1865, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform2"]
+shape = SubResource("RectangleShape2D_dfitb")
+
+[node name="Polygon2D" type="Polygon2D" parent="Platform2"]
+polygon = PackedVector2Array(-10, -10, 10, -10, 10, 10, -10, 10)
+
+[node name="Platform3" type="StaticBody2D" parent="."]
+position = Vector2(805, 381)
+rotation = -0.564742
+scale = Vector2(47.1865, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform3"]
+shape = SubResource("RectangleShape2D_dfitb")
+
+[node name="Polygon2D" type="Polygon2D" parent="Platform3"]
+polygon = PackedVector2Array(-10, -10, 10, -10, 10, 10, -10, 10)
+
+[node name="Line2D" type="Line2D" parent="."]
+points = PackedVector2Array(0, 0, 0, 0)
+width = 1.0
+default_color = Color(1, 0, 0, 1)
+begin_cap_mode = 2
+end_cap_mode = 2
+antialiased = true
+script = ExtResource("2_otal7")
+node_a_path = NodePath("../Player")
+node_b_path = NodePath("../Player/Hammer")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
