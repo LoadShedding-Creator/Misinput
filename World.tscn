@@ -34,35 +34,84 @@ environment = SubResource("Environment_ox3x6")
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="WorldEnvironment"]
 
-[node name="ParallaxLayer" type="ParallaxLayer" parent="WorldEnvironment/ParallaxBackground"]
+[node name="ParalaxGround" type="ParallaxLayer" parent="WorldEnvironment/ParallaxBackground"]
+z_index = 10
 position = Vector2(-152, 14)
+motion_mirroring = Vector2(3245.95, 0)
+
+[node name="Polygon2D" type="Polygon2D" parent="WorldEnvironment/ParallaxBackground/ParalaxGround"]
+color = Color(0.171045, 0.480773, 0.144513, 1)
+polygon = PackedVector2Array(148, 460, 399, 446, 805, 446, 1192, 459, 1510, 450, 1846, 462, 2231, 459, 2588, 449, 2927, 452, 3304, 452, 3300, 667, -18, 667, -19, 452, 65, 451)
+
+[node name="ParalaxMountain1" type="ParallaxLayer" parent="WorldEnvironment/ParallaxBackground"]
+position = Vector2(-152, 14)
+motion_scale = Vector2(0.5, 1)
 motion_mirroring = Vector2(1441.68, 0)
 
-[node name="Polygon2D" type="Polygon2D" parent="WorldEnvironment/ParallaxBackground/ParallaxLayer"]
+[node name="Polygon2D" type="Polygon2D" parent="WorldEnvironment/ParallaxBackground/ParalaxMountain1"]
 position = Vector2(1300, 721.135)
 scale = Vector2(2.7, 1.71)
 color = Color(1, 1, 0.145098, 1)
-polygon = PackedVector2Array(-466.643, -146.281, -386.635, -172.597, -339.93, -224.646, -246.519, -165.58, -186.006, -153.884, -81.6295, -184.878, -40.204, -240.435, 85.6971, -147.451)
+polygon = PackedVector2Array(-499.259, -146.278, -435.556, -159.143, -414.074, -169.085, -393.333, -179.611, -378.519, -185.459, -364.444, -196.57, -351.852, -208.266, -339.93, -224.646, -326.296, -228.149, -314.074, -219.962, -297.037, -194.231, -277.407, -176.102, -246.519, -165.58, -186.006, -153.884, -133.333, -163.822, -103.704, -169.67, -81.6295, -184.878, -61.8519, -203.588, -50.3704, -231.073, -40.204, -240.435, -24.8148, -235.167, -13.3333, -215.284, 9.62961, -192.477, 32.963, -173.763, 85.6971, -147.451)
 
-[node name="ParallaxLayer2" type="ParallaxLayer" parent="WorldEnvironment/ParallaxBackground"]
+[node name="Paralaxmountain2" type="ParallaxLayer" parent="WorldEnvironment/ParallaxBackground"]
 position = Vector2(-17, -3)
-motion_scale = Vector2(0.5, 1)
+motion_scale = Vector2(0.25, 1)
 motion_mirroring = Vector2(1525.31, 0)
 
-[node name="Polygon2D" type="Polygon2D" parent="WorldEnvironment/ParallaxBackground/ParallaxLayer2"]
+[node name="Polygon2D" type="Polygon2D" parent="WorldEnvironment/ParallaxBackground/Paralaxmountain2"]
 z_index = -5
 position = Vector2(785, 472.135)
 color = Color(1, 0.133333, 1, 1)
-polygon = PackedVector2Array(-806, 11, -579, -62, -442, -192, -247, -196, -168, -107, 33, -31, 243, -97, 285, -177, 357, -268, 424, -210, 523, -174, 591.404, -102.286, 662, -50, 762, 15, -368.557, 12.1158)
+polygon = PackedVector2Array(-806, 11, -579, -62, -492, -129.135, -455, -170.135, -418, -203.135, -363, -223.135, -294, -215.135, -247, -196, -222, -151.135, -176, -106.135, -129, -70.135, -82, -48.135, -31, -36.135, 33, -31, 92, -37.135, 146, -56.135, 224, -104.135, 258, -141.135, 280, -177.135, 308, -228.135, 357, -268, 399, -267.135, 435, -251.135, 486, -215.135, 523, -174, 591.404, -102.286, 662, -50, 762, 15, -368.557, 12.1158)
 
-[node name="ParallaxLayer3" type="ParallaxLayer" parent="WorldEnvironment/ParallaxBackground"]
+[node name="ParalaxMountain3" type="ParallaxLayer" parent="WorldEnvironment/ParallaxBackground"]
 position = Vector2(4, -12)
-motion_scale = Vector2(0.25, 1)
+motion_scale = Vector2(0.1, 1)
 motion_mirroring = Vector2(1561.06, 0)
 
-[node name="Polygon2D" type="Polygon2D" parent="WorldEnvironment/ParallaxBackground/ParallaxLayer3"]
+[node name="Polygon2D" type="Polygon2D" parent="WorldEnvironment/ParallaxBackground/ParalaxMountain3"]
 z_index = -10
 position = Vector2(1300, 721.135)
 scale = Vector2(2.46225, 1.70996)
 color = Color(0.447059, 1, 1, 1)
-polygon = PackedVector2Array(-451, -209, -530, -143, -363, -136, -197, -134, -72.0522, -136.231, -29, -137, 119, -134, 85, -230, 10, -282, -53, -365, -93, -326, -124, -218, -178, -190, -232, -232, -252, -277, -277, -296, -328, -307, -387, -295)
+polygon = PackedVector2Array(-451, -209, -530, -143, -363, -136, -197, -134, -72.0522, -136.231, -29, -137, 119, -134, 118.591, -160.317, 69.4487, -193.651, 36.9581, -230.494, -1.21838, -272.6, -29.6476, -320.554, -53, -365, -65.3873, -380.205, -83.2572, -381.374, -89.7553, -377.866, -93.8166, -369.093, -94.2227, -329.911, -97.4718, -294.238, -106.813, -255.64, -124.683, -221.722, -147.02, -199.499, -178, -190, -209.158, -197.744, -231.089, -209.441, -248.147, -234.003, -261.143, -253.886, -281.45, -284.881, -305.412, -305.934, -328.967, -312.367, -358.615, -310.028, -387, -295)
+
+[node name="Clouds1" type="ParallaxLayer" parent="WorldEnvironment/ParallaxBackground"]
+z_index = -40
+position = Vector2(96, -12)
+motion_scale = Vector2(0.15, 0.15)
+motion_mirroring = Vector2(1604.98, 0)
+
+[node name="Polygon2D" type="Polygon2D" parent="WorldEnvironment/ParallaxBackground/Clouds1"]
+position = Vector2(-153, 42)
+color = Color(0.103744, 0.103744, 0.103744, 1)
+polygon = PackedVector2Array(66, 48, 113, 48, 144, 24, 172, 33, 208, 31, 242, 18, 268, 35, 255, 53, 257, 82, 223, 92, 192, 78, 145, 98, 114, 88, 74, 110, 44, 84)
+
+[node name="Polygon2D2" type="Polygon2D" parent="WorldEnvironment/ParallaxBackground/Clouds1"]
+position = Vector2(-279, -16)
+color = Color(0, 0, 0, 1)
+polygon = PackedVector2Array(780, 63, 813, 11, 868, -7, 855, -59, 899, -49, 933, -74, 962, -30, 1013, -23, 1088, -47, 1080, -4, 1118, 31, 1073, 65, 1098, 117, 1009, 121, 962, 81, 916, 114, 870, 80, 807, 106)
+
+[node name="Clouds2" type="ParallaxLayer" parent="WorldEnvironment/ParallaxBackground"]
+z_index = -30
+position = Vector2(645, -145)
+motion_scale = Vector2(0.2, 1)
+motion_mirroring = Vector2(1660.06, 0)
+
+[node name="Polygon2D" type="Polygon2D" parent="WorldEnvironment/ParallaxBackground/Clouds2"]
+position = Vector2(-124, 17)
+color = Color(0.344076, 0.344076, 0.344076, 1)
+polygon = PackedVector2Array(396, 103, 443, 96, 465, 67, 498, 97, 546, 97, 541, 123, 573, 145, 519, 166, 488, 146, 454, 170, 387, 181, 343, 153, 393, 136)
+
+[node name="Polygon2D2" type="Polygon2D" parent="WorldEnvironment/ParallaxBackground/Clouds2"]
+position = Vector2(313, 65)
+color = Color(0.344076, 0.344076, 0.344076, 1)
+polygon = PackedVector2Array(405, 92, 427, 65, 468, 77, 492, 104, 533, 106, 558, 131, 600, 127, 577, 162, 519, 166, 491, 139, 450, 147, 427, 177, 388, 177, 380, 148, 343, 153, 359, 105)
+
+[node name="Polygon2D3" type="Polygon2D" parent="WorldEnvironment/ParallaxBackground/Clouds2"]
+position = Vector2(1703, 311)
+rotation = 3.14159
+scale = Vector2(1.15459, 1.41181)
+color = Color(0.344076, 0.344076, 0.344076, 1)
+polygon = PackedVector2Array(405, 92, 427, 65, 468, 77, 492, 104, 533, 106, 558, 131, 600, 127, 577, 162, 519, 166, 491, 139, 450, 147, 427, 177, 388, 177, 380, 148, 343, 153, 359, 105)
