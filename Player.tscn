@@ -7,10 +7,11 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xvro7"]
 size = Vector2(50, 50)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_w7hpl"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n1tku"]
 
 [node name="Player" type="RigidBody2D"]
 position = Vector2(590, 230)
+collision_mask = 4
 script = ExtResource("1_3yvm4")
 
 [node name="Face" type="Node2D" parent="."]
@@ -23,24 +24,29 @@ polygon = PackedVector2Array(-25, -25, -25, 25, 25, 25, 25, -25)
 visible = false
 shape = SubResource("RectangleShape2D_xvro7")
 
-[node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(2, 2)
-
-[node name="Hammer" type="RigidBody2D" parent="."]
+[node name="Hammer2" type="RigidBody2D" parent="."]
 position = Vector2(-108, -5)
+collision_layer = 2
+collision_mask = 4
+mass = 10.0
 script = ExtResource("2_phypj")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hammer"]
-shape = SubResource("RectangleShape2D_w7hpl")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hammer2"]
+shape = SubResource("RectangleShape2D_n1tku")
 
-[node name="Polygon2D" type="Polygon2D" parent="Hammer"]
+[node name="Polygon2D" type="Polygon2D" parent="Hammer2"]
 position = Vector2(1, 0)
 color = Color(1, 0, 1, 1)
 offset = Vector2(-0.5, -0.5)
 polygon = PackedVector2Array(-10.5, -9.5, 9.5, -9.5, 9.5, 10.5, -10.5, 10.5)
 
-[node name="Line2D" type="Line2D" parent="."]
-points = PackedVector2Array(64.1, 0, 0, 0)
+[node name="PinJoint2D2" type="PinJoint2D" parent="."]
+node_a = NodePath("..")
+node_b = NodePath("../Hammer2")
+bias = 0.9
+
+[node name="Line2D2" type="Line2D" parent="."]
+points = PackedVector2Array(185, 1, -22, 81)
 width = 1.0
 default_color = Color(1, 0, 0, 1)
 begin_cap_mode = 2
@@ -48,9 +54,4 @@ end_cap_mode = 2
 antialiased = true
 script = ExtResource("2_kctox")
 node_a_path = NodePath("..")
-node_b_path = NodePath("../Hammer")
-
-[node name="PinJoint2D" type="PinJoint2D" parent="."]
-node_a = NodePath("..")
-node_b = NodePath("../Hammer")
-bias = 0.9
+node_b_path = NodePath("../Hammer2")

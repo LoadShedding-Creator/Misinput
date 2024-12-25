@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://dbxckrfghx2ct"]
+[gd_scene load_steps=5 format=3 uid="uid://dbxckrfghx2ct"]
 
 [ext_resource type="PackedScene" uid="uid://crq0s54sf8dxg" path="res://platform.tscn" id="4_cimb8"]
 
@@ -7,20 +7,19 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vm3fk"]
 size = Vector2(1913, 162)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_75g0x"]
+
 [node name="World" type="Node2D"]
 
 [node name="Platform" parent="." instance=ExtResource("4_cimb8")]
-visible = false
 position = Vector2(574, 344)
 scale = Vector2(1.15171, 8.35601)
 
 [node name="Platform2" parent="." instance=ExtResource("4_cimb8")]
-visible = false
 position = Vector2(326, 419)
 scale = Vector2(80.6727, 0.826796)
 
 [node name="Platform3" parent="." instance=ExtResource("4_cimb8")]
-visible = false
 position = Vector2(456, 344)
 rotation = -0.633929
 scale = Vector2(13.5189, -0.384159)
@@ -43,12 +42,15 @@ position = Vector2(-152, 14)
 motion_mirroring = Vector2(3245.95, 0)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="WorldEnvironment/ParallaxBackground/ParallaxGround"]
+collision_layer = 4
+collision_mask = 3
 
 [node name="Polygon2D" type="Polygon2D" parent="WorldEnvironment/ParallaxBackground/ParallaxGround/StaticBody2D"]
 color = Color(0.171045, 0.480773, 0.144513, 1)
 polygon = PackedVector2Array(148, 460, 399, 446, 805, 446, 1192, 459, 1510, 450, 1846, 462, 2231, 459, 2588, 449, 2927, 452, 3304, 452, 3300, 667, -18, 667, -19, 452, 65, 451)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WorldEnvironment/ParallaxBackground/ParallaxGround/StaticBody2D"]
+visible = false
 position = Vector2(937.5, 589)
 shape = SubResource("RectangleShape2D_vm3fk")
 
@@ -125,3 +127,41 @@ rotation = 3.14159
 scale = Vector2(1.15459, 1.41181)
 color = Color(0.344076, 0.344076, 0.344076, 1)
 polygon = PackedVector2Array(405, 92, 427, 65, 468, 77, 492, 104, 533, 106, 558, 131, 600, 127, 577, 162, 519, 166, 491, 139, 450, 147, 427, 177, 388, 177, 380, 148, 343, 153, 359, 105)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(498, 56)
+scale = Vector2(76.416, 0.669163)
+collision_layer = 4
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_75g0x")
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="."]
+position = Vector2(482, 419)
+scale = Vector2(76.416, 0.669163)
+collision_layer = 4
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D4"]
+shape = SubResource("RectangleShape2D_75g0x")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+position = Vector2(971, 287)
+rotation = -1.59321
+scale = Vector2(76.416, 0.669163)
+collision_layer = 4
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+shape = SubResource("RectangleShape2D_75g0x")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="."]
+position = Vector2(-22, 264)
+rotation = -1.59321
+scale = Vector2(76.416, 0.669163)
+collision_layer = 4
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
+shape = SubResource("RectangleShape2D_75g0x")

@@ -38,6 +38,12 @@ d={
 ]
 }
 
+[layer_names]
+
+2d_physics/layer_1="Player"
+2d_physics/layer_2="Hammer"
+2d_physics/layer_3="World"
+
 [rendering]
 
 environment/volumetric_fog/volume_size=256
