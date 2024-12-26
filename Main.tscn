@@ -16,5 +16,5 @@ position = Vector2(375, 271)
 
 [node name="Camera2D2" type="Camera2D" parent="Player"]
 position = Vector2(-119, -47)
-zoom = Vector2(0.37, 0.37)
+zoom = Vector2(0.525, 0.525)
 script = ExtResource("2_xvqob")

@@ -1,13 +1,22 @@
-extends RigidBody2D
+extends StaticBody2D
 
-@export var max_distance = 50.0  # Maximum distance from the center
-@export var center_position: NodePath  # Reference to the center node (e.g., the character)
-
-var center_node: RigidBody2D
+@export var pivot_position: Vector2 = Vector2.ZERO  # The fixed position for rotation
 
 func _ready():
-# Get the center node
-	center_node = get_parent() as RigidBody2D
+	# Initialize the hammer's rotation point if needed
+	if pivot_position == Vector2.ZERO:
+		pivot_position = get_parent().global_position
 
-func _integrate_forces(state):
-	apply_central_force((get_global_mouse_position() - global_position ) * 20)
+func _process(delta):
+	# Get the mouse position in global coordinates
+	var mouse_position = get_global_mouse_position()
+
+	# Calculate the angle to the mouse relative to the pivot
+	var direction =  pivot_position - mouse_position
+	var target_angle = direction.angle()
+
+	# Set the hammer's rotation to the calculated angle
+	global_rotation = target_angle
+
+	# Ensure the hammer remains at the pivot position
+	#global_position = pivot_position

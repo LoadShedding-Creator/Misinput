@@ -4,8 +4,8 @@ extends Line2D
 @export var node_a_path: NodePath
 @export var node_b_path: NodePath
 
-var node_a: RigidBody2D
-var node_b: RigidBody2D
+var node_a
+var node_b
 
 func _ready():
 	node_a = get_node(node_a_path)
